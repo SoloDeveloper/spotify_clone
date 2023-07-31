@@ -1,9 +1,7 @@
 import { FaPlay } from "react-icons/fa";
 
-interface PlayButtonProps {}
-
-const PlayButton: React.FC<PlaybackDirection> = () => {
-	return ( 
+const PlayButton = () => {
+	return (
 		<button className="
 			transition
 			opacity-0
@@ -19,9 +17,9 @@ const PlayButton: React.FC<PlaybackDirection> = () => {
 			group-hover:translate-y-0
 			hover:scale-110
 		">
-			<FaPlay className="text-black"/>
+			<FaPlay className="text-black" />
 		</button>
-	 );
-}
- 
+	);
+};
+
 export default PlayButton;
