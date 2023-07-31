@@ -11,10 +11,10 @@ interface SongItemProps {
 }
 
 const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
-	const imagePath = useLoadImage(data)
+	const imagePath = useLoadImage(data);
 
 	return (
-		<div 
+		<div
 			onClick={() => onClick(data.id)}
 			className="
 				relative
@@ -41,7 +41,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
 				rounded-md
 				overflow-hidden
 			">
-				<Image 
+				<Image
 					className="object-cover"
 					src={imagePath || '/images/liked.png'}
 					fill

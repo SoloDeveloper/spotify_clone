@@ -32,7 +32,7 @@ const PageContent: React.FC<PageContentProps> = ({ songs }) => {
 				<SongItem
 					key={item.id}
 					onClick={() => { }}
-					data = { item }
+					data={item}
 				/>
 			))}
 		</div>

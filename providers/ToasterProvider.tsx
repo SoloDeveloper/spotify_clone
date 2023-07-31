@@ -12,7 +12,7 @@ const ToasterProvider = () => {
 				}
 			}}
 		/>
-	)
-}
+	);
+};
 
-export default ToasterProvider
+export default ToasterProvider;
