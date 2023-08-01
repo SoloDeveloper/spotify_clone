@@ -9,13 +9,8 @@ interface PlayerProps { }
 
 const Player = () => {
 	const player = usePlayer();
-	console.log("🚀 ~ file: Player.tsx:11 ~ Player ~ player:", player)
-
 	const { song } = useGetSongById(player.activeId);
-	console.log("🚀 ~ file: Player.tsx:13 ~ Player ~ song:", song)
-
 	const songUrl = useLoadSongUrl(song!);
-	console.log("🚀 ~ file: Player.tsx:15 ~ Player ~ songUrl:", songUrl)
 
 	if (!song || !songUrl || !player.activeId) {
 		return null;

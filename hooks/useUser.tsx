@@ -41,9 +41,9 @@ export const MyUserContextProvider = (props: Props) => {
 
 	const getSubscription = () =>
 		supabase
-			.from("subscriptions")
-			.select("*, prices(*, products(*))")
-			.in("status", ["trialing", "active"])
+			.from('subscriptions')
+			.select('*, prices(*, products(*))')
+			.in('status', ['trialing', 'active'])
 			.single();
 
 	useEffect(() => {
@@ -53,7 +53,8 @@ export const MyUserContextProvider = (props: Props) => {
 			Promise.allSettled([getUserDetails(), getSubscription()])
 				.then((results => {
 					const userDetailsPromise = results[0];
-					const subscriptionPromise = results[0];
+					const subscriptionPromise = results[1];
+					console.log("🚀 ~ file: useUser.tsx:57 ~ useEffect ~ subscriptionPromise:", subscriptionPromise)
 
 					if (userDetailsPromise.status === "fulfilled") {
 						setUserDetails(userDetailsPromise.value.data as UserDetails);
@@ -61,6 +62,7 @@ export const MyUserContextProvider = (props: Props) => {
 
 					if (subscriptionPromise.status === "fulfilled") {
 						setSubscription(subscriptionPromise.value.data as Subscription);
+						console.log("🚀 ~ file: useUser.tsx:64 ~ useEffect ~ subscriptionPromise.value.data:", subscriptionPromise.value.data)
 					}
 
 					setIsLoadingData(false);
@@ -78,6 +80,7 @@ export const MyUserContextProvider = (props: Props) => {
 		isLoading: isLoadingUser || isLoadingData,
 		subscription
 	};
+	console.log("🚀 ~ file: useUser.tsx:81 ~ MyUserContextProvider ~ value.subscription:", value.subscription)
 
 	return <UserContext.Provider value={value} {...props} />;
 };
